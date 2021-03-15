@@ -1,0 +1,23 @@
+---
+ - name: Practice on Arithmetic Operators
+   hosts: localhost
+   gather_facts: false
+   #vars_files:
+   # - my_vars_file.yml
+   vars_prompt:
+    - name: x
+      prompt: Please enter a value
+      private: no
+    - name: y
+      prompt: Please enter a value
+      private: no
+   
+   vars:
+    a: 56
+   tasks:
+    - debug:
+       msg:
+        - "The value of x is: {{x|type_debug}}"
+        -  The value of y is {{y}}
+        - "The addition of {{x}} and {{y}} is {{x|int + y|int}}"
+        - The {{a}} - {{y}} is {{a-y|int}}
